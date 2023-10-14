@@ -6,8 +6,21 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
     steps:
-      -uses: actions/checkout@v3
-      -name: Configure AWS credentials
-       uses: aws-actions/configure-aws-credentials@v4
-       with:
-         aws-access-key-id:
+    - uses: actions/checkout@v3
+    - name: AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+       aws-access-key-id: ASIAXWDRTCCOEPH77DVX
+       aws-secret-access-key: fqXVxSMxcNqyShTqAlXky3jxV2dHAerxCxAqhlVE
+       aws-region: ap-south-1
+    - name: setup terraform
+      uses: hashicorp/setup-terraform@v2
+    - name: terraform apply
+      run:
+        cd module/
+        terraform init
+        terraform plan -var-file="harshit.tfvars"
+        terraform apply -var-file="harshit.tfvars"
+
+
+      
