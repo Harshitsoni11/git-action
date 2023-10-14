@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
+      uses: aws-actions/configure-aws-credentials@v1
       with:
        aws-access-key-id: ASIAXWDRTCCOEPH77DVX
        aws-secret-access-key: fqXVxSMxcNqyShTqAlXky3jxV2dHAerxCxAqhlVE
