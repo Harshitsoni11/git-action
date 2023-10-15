@@ -6,7 +6,7 @@ loop_name = {
 
 }
 tags={
-  "name"="Harshits4",
+  "Name"="Harshits4",
   "owner"="harshit@cloudeq.com",
   "purpose"="Assignment"
 }
