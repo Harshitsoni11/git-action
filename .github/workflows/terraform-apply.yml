@@ -17,7 +17,7 @@ jobs:
     - name: setup terraform
       uses: hashicorp/setup-terraform@v2
     - name: terraform apply
-      run:
+      run:  |
         cd module/
         terraform init
         terraform plan -var-file="harshit.tfvars"
