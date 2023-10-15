@@ -16,7 +16,7 @@ jobs:
        aws-region: ap-south-1  
     - name: setup terraform
       uses: hashicorp/setup-terraform@v2
-    - name: terraform apply
+    - name: terraform detsroy
       run:  |
         cd modules/
         terraform init
