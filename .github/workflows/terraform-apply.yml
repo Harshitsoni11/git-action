@@ -21,7 +21,7 @@ jobs:
         cd module/
         terraform init
         terraform plan -var-file="harshit.tfvars"
-        terraform apply -var-file="harshit.tfvars"
+        terraform apply -auto-approve -var-file="harshit.tfvars"
 
 
       
