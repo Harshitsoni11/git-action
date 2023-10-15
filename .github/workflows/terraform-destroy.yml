@@ -1,1 +1,22 @@
+name: terraform destroy
 
+on:
+  workflow_dispatch:
+jobs:
+  terraform-destroy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+       aws-access-key-id: ASIAXWDRTCCOG6YX4UMH
+       aws-secret-access-key: jz2i3Y1RZZgY+shyhjZB7gs9+tLXu7vmNY1kvG+k
+       aws-session-token: IQoJb3JpZ2luX2VjEEYaCXVzLXdlc3QtMiJGMEQCIGBIMq/cc/D4/zvhU5Rh1YNSuB0GELYMYc/jtUlxR18UAiBg0tcmx9Nm7pPQg/Au60WHTGpTZ6Ea6TFygV4eew6zxSqEAwhfEAEaDDUyODUxOTIwNTAyMCIM/4O2+/yaerfMkB45KuECqw3i+Hv5UVXHFRW4sLsroepaORMienEgW93hZ8XJ9EzIZcLuowbGI5mjt1qMPcF0a58IX9+sN+vvLPDjNw6G5xO1IUIXA8QptqOCZCUOzQC0RnO66ibQV0HxLoTZDmyguQZOTSh3qgGkvLRCFbJWCKJYWsTModc3QxcNC4BrNd3k3UEj5s1xnPXPbo4dMhh5uVoiLQfnINKbpTG31KJlhmXihv3mqeJjS+Nz+4PVmlaJoqlxJpzOF/GZGM6ILle6wneEjORw7t+rSclOU1HTVh/q1j6u6RC6SjZqDj/fncsB4MViA2MKzM3JzDUx6BtH8UDYTg6w9wvBt4LIokebNkoMEC+sGPs4WnPn2ZeIJNguCzL1GQnOE+aIte8KxUeAKeZGsqyRjxCE5ce97Anzq21YwWGrMAGl/SLESpcpCo7x72RGYmMuKFZ9O7LC+2YYjx2w/BR3OTYESAXc7JMcDBYw19evqQY6pwFVmsQzdsHgurzVFU7yvKo5HIaWk0ByO0q7Y04xt6uwrYvVIAXqUc5d5oxACZMToQTWcLThS5dhJHoSWdV83XdFdcewKY/XfWup9GGqZTA5oIOfkk73+qTEsS6sQzFeMXdKeLmhlHTlzEuYY+sA/JuGwV/Hd7x9J+Q3kg8+EZ3Tp47BY29mdSWNrUtDCJ5Xa5F3btvitNsDVi0bhBmnwcwO6U7diSQ0eA==
+       aws-region: ap-south-1  
+    - name: setup terraform
+      uses: hashicorp/setup-terraform@v2
+    - name: terraform apply
+      run:  |
+        cd modules/
+        terraform destroy -auto-approve -var-file="harshit.tfvars"
