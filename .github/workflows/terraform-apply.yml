@@ -2,6 +2,11 @@ name: terraform apply
 
 on:
   workflow_dispatch:
+     inputs:
+      AWS_REGION:
+        description: 'Region required'
+        required: true
+    
 jobs:
   terraform:
     runs-on: ubuntu-latest
